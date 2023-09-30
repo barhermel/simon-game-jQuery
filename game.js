@@ -3,7 +3,19 @@ let userClickedPattern = [];
 let btnColours = ["red", "blue", "green", "yellow"];
 let level = 0;
 $('body').one('keypress', nextSequance);
+$('body').one('touchstart',nextSequance);
 $(`.btn`).click((e) => {
+
+    if (gamePattern.length > 0) {
+        let userChosenButton = e.target.id;
+        userClickedPattern.push(userChosenButton);
+        playSound(userChosenButton);
+        animatePress(userChosenButton);
+        gameNextState(checkAnswer(userClickedPattern.length - 1));
+    }
+});
+
+$('.btn').on('tap', (e) => {
 
     if (gamePattern.length > 0) {
         let userChosenButton = e.target.id;
@@ -43,8 +55,10 @@ function gameNextState(userAnswer){
         }, 200);
         changeTitle(`Game Over, Press Any Key to Restart`);
         $('body').one('keypress', startOver);
+        $('body').one('touchstart',nextSequance);
     }
 }
+
 
 function playSound(name) {
     let audio = new Audio(`./sounds/${name}.mp3`);
