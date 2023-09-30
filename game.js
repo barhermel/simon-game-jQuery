@@ -1,7 +1,7 @@
 let gamePattern = [];
 let userClickedPattern = [];
 let btnColours = ["red", "blue", "green", "yellow"];
-let level = 0;
+let level = 1;
 $('body').one('keypress', nextSequance);
 $('body').one('touchstart',nextSequance);
 $(`.btn`).click((e) => {
@@ -29,7 +29,6 @@ $('.btn').on('tap', (e) => {
 function nextSequance() {
     changeTitle(`Level ${level}`);
     setTimeout(() => {
-        level++;
         generateNewRandomColour();
         userClickedPattern = [];
     }, 500)
@@ -45,7 +44,10 @@ function checkAnswer(currentLevel) {
 
 function gameNextState(userAnswer){
     if (userAnswer === true){
-        if (userClickedPattern.length === level) nextSequance();
+        if (userClickedPattern.length === level){
+            level++;
+            nextSequance();
+        } 
     }
     else {
         playSound(`wrong`);
@@ -75,7 +77,7 @@ function animatePress(currentColour) {
 
 function startOver(){
     gamePattern = [];
-    level = 0;
+    level = 1;
     nextSequance();
 }
 
