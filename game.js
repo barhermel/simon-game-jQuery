@@ -55,7 +55,7 @@ function gameNextState(userAnswer){
         }, 200);
         changeTitle(`Game Over, Press Any Key to Restart`);
         $('body').one('keypress', startOver);
-        $('body').one('touchstart',nextSequance);
+        $('body').one('touchstart',startOver);
     }
 }
 
