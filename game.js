@@ -27,9 +27,9 @@ $('.btn').on('tap', (e) => {
 });
 
 function nextSequance() {
+    changeTitle(`Level ${level}`);
     setTimeout(() => {
         level++;
-        changeTitle(`Level ${level}`);
         generateNewRandomColour();
         userClickedPattern = [];
     }, 500)
