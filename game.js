@@ -129,6 +129,12 @@ function changeTitle(newTitle){
 }
 
 function startTutorial(){
+    $('.play').removeClass('show');
+    $('.tutorial').removeClass('show');
+    $('.play').addClass('hide');
+    $('.tutorial').addClass('hide');
+    $(`#formName`).removeClass('show');
+    $(`#formName`).addClass('hide');
     tutorialflag = 1;
     let instructions = 'In each level Simon will chose a diffrent color like this';
     changeTitle(instructions)
@@ -189,6 +195,7 @@ function userClickColor(e){
             setTimeout(() => {
                 $('.play').addClass('show');
                 $('.tutorial').addClass('show');
+                $(`#formName`).addClass('show');
             }, 2000)
         }, 2000)
     }, 3000)
