@@ -1,6 +1,11 @@
 body {
   background-color: #011f3f;
   text-align: center;
+  color: #fef2bf;
+}
+
+p , label {
+  font-size: 2rem;
 }
 
 #level-title {
@@ -8,6 +13,14 @@ body {
   font-family: "Press Start 2P", cursive;
   font-size: 3rem;
   margin:  5%;
+}
+
+label{
+  margin-left: 10px;
+}
+
+input {
+  margin-left: 20px;
 }
 
 .game-over {
@@ -51,9 +64,30 @@ body {
   background-color: grey;
 }
 
+
+button {
+  font-size: 2rem;
+  background-color: cornflowerblue;
+  border-radius: 30%;
+  border: solid black 10px;
+  padding: 15px;
+}
+
+.hide {
+  visibility: hidden;
+}
+
+.show {
+  visibility: visible;
+}
+
 @media screen and (max-width: 600px) {
+    body {
+      height: 100vh;
+    }
     .container{
         width: 100%;
+        height: 100%;
     }
     .btn {
         margin: 5px;
